@@ -1,16 +1,19 @@
 import express from "express";
 import mongoose from "mongoose";
 import professor from "./routes/UserRouter.js";
+import { configDotenv } from "dotenv";
 
 export const app = express();
-export const port = 2424;
+
+const env = configDotenv()
+const { DATABASE_URL } = env.parsed
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb://localhost:27017/octopus")
+  .connect(DATABASE_URL)
   .then(() => {
     console.log("Mongo conectado com sucesso");
   })

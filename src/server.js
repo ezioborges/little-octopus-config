@@ -1,7 +1,7 @@
 import { app } from './app.js'
-import dotenv from "dotenv"
+import { configDotenv } from 'dotenv'
 
-const env = dotenv.config()
+const env = configDotenv()
 const { DATABASE_PORT } = env.parsed
 
 app.listen(DATABASE_PORT, () => {

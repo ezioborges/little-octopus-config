@@ -5,4 +5,4 @@ const UserSchema = mongoose.Schema({
   lastName: { type: String, require: true },
 });
 
-mongoose.model("users", UserSchema);
+mongoose.model("users-config", UserSchema);
